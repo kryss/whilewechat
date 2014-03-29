@@ -11,7 +11,7 @@
 
       <% @events.each do |event| %>
           <li><a href="#<%= "page#{event.id}" %>">
-              <img src="../_assets/img/album-bb.jpg">
+            <%= image_tag event.pic %>
           <h2><%= event.title %></h2>
           <p><%= event.description %></p></a>
           </li>
