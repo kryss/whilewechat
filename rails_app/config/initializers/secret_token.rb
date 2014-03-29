@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Whilewechat::Application.config.secret_key_base = 'f082ef5aff03ad6997fe6fa803fd000c10e341ae0d2f8648e7bb436f5a05f5952e29c78a8b76789c8e81414e3722db4ee5b3b3d598baeb57ad03a8949b34cbec'
+RailsApp::Application.config.secret_key_base = '6e0dd31339847a0045f914a87687149873de960a4224e2a457949dd5e0d0f5fdacf700802e4225e5c506b843c037fa65878e67ebe08320f4a3d0e075cf4cd40a'
