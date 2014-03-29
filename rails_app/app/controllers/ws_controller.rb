@@ -11,21 +11,27 @@ class WsController < ApplicationController
     type = xml.xpath("//xml/MsgType").text
     puts "--request type is: #{type}"
     if type == "text"
-      content = xml.xpath("//xml/Content").text
-      him = xml.xpath("//xml/FromUserName").text
-      me = xml.xpath("//xml/ToUserName").text
-      now = Time.now.to_i
-      msg = menu(content)
-      x = "<xml><ToUserName><![CDATA[#{him}]]></ToUserName><FromUserName><![CDATA[#{me}]]></FromUserName><CreateTime>#{now}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[#{msg}]]></Content></xml>"
-      
+      @content = xml.xpath("//xml/Content").text
+      @him = xml.xpath("//xml/FromUserName").text
+      @me = xml.xpath("//xml/ToUserName").text
+      @now = Time.now.to_i
+      if @content == "1"
+        login
+      else
+        menu
+      end        
     end
-
-    render :xml => x
+    render :xml => @ret
   end
 
   private
-  def menu(msg)
-    {"x" => "users - to list users\nevent - to list the next event\nfoo - to bar baz"}.fetch(msg, "Sorry, i don't know this command :(")
+  def menu
+    msg = "type:\n1 - to login"
+    @ret = "<xml><ToUserName><![CDATA[#{@him}]]></ToUserName><FromUserName><![CDATA[#{@me}]]></FromUserName><CreateTime>#{@now}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[#{msg}]]></Content></xml>"
+  end
+
+  def login
+    @ret = "<xml><ToUserName><![CDATA[#{@him}]]></ToUserName><FromUserName><![CDATA[#{@me}]]></FromUserName><CreateTime>#{@now}</CreateTime><MsgType><![CDATA[news]]></MsgType><ArticleCount>1</ArticleCount><Articles><item><Title><![CDATA[Authentification]]></Title><PicUrl><Url><![CDATA[http://10.0.1.26:3000/auth/wechat]]></Url></item></Articles></xml>"
   end
 
 end
