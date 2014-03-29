@@ -26,3 +26,38 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+{
+    "button": [
+        {
+            "type": "view", 
+            "name": "Events", 
+            "url": "http://10.0.1.26:3000/events"
+        }, 
+        {
+            "type": "view", 
+            "name": "users", 
+            "url": "http://10.0.1.26:3000/users"
+        }, 
+        {
+            "name": "Menu", 
+            "sub_button": [
+                {
+                    "type": "view", 
+                    "name": "About", 
+                    "url": "http://10.0.1.26:3000/about"
+                }, 
+                {
+                    "type": "view", 
+                    "name": "Auth", 
+                    "url": "http://10.0.1.26:3000/auth/wechat"
+                }, 
+                {
+                    "type": "view", 
+                    "name": "Join", 
+                    "url": "http://10.0.1.26:3000/user/new"
+                }
+            ]
+        }
+    ]
+}

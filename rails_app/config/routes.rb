@@ -1,8 +1,11 @@
 RailsApp::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :events
 
   get "home/index"
   resources :users
+  get 'events/:id/attend' => "events#attend", :as => :sub
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
