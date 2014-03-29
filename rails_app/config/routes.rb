@@ -2,6 +2,7 @@ RailsApp::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  get 'about' => 'about#index'
   get 'ws' => 'ws#answering_machine'
   post 'ws' => 'ws#answering_machine'
 
