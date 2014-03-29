@@ -1,5 +1,4 @@
 class EventsController < InheritedResources::Base
-
   def create
     @event = Event.new(event_params)
     if  @event.save
@@ -10,6 +9,7 @@ class EventsController < InheritedResources::Base
   end
 
   def attend
+    
   end
 
 private
