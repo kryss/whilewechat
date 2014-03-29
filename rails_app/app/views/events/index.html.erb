@@ -1,37 +1,68 @@
-<h1>Listing events</h1>
+<% content_for :title do %>
+  Events
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Event date</th>
-      <th>Slot</th>
-      <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div data-role="page" id="list">
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.location %></td>
-        <td><%= event.event_date %></td>
-        <td><%= event.slot %></td>
-        <td><%= event.price %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+  <div role="main" class="ui-content">
+<ul data-role="listview" data-inset="true">
+
+
+      <% @events.each do |event| %>
+          <li><a href="#<%= "page#{event.id}" %>">
+              <img src="../_assets/img/album-bb.jpg">
+          <h2><%= event.title %></h2>
+          <p><%= event.description %></p></a>
+          </li>
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Event', new_event_path %>
+</ul>
+  </div><!-- /content -->
+</div><!-- /page -->
+ <% @events.each do |event| %>
+<div data-role="page" id="<%= "page#{event.id}" %>" >
+  <div id="ui-body-test" class="ui-body ui-corner-all ui-body-a" style="margin-bottom:1em;">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Title:</strong>
+      <%= event.title %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= event.description %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= event.location %>
+    </p>
+
+    <p>
+      <strong>Event date:</strong>
+      <%= event.event_date %>
+    </p>
+
+    <p>
+      <strong>Slot:</strong>
+      <%= event.slot %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= event.price %>
+    </p>
+
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+  </div>
+
+
+</div><!-- /page -->
+
+<% end %>
+
+
+

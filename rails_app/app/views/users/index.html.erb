@@ -1,43 +1,13 @@
-<h1>Listing users</h1>
+<% content_for :title do %>
+  Events
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fullname</th>
-      <th>Company</th>
-      <th>Email</th>
-      <th>School</th>
-      <th>Grade</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>Phone</th>
-      <th>About</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.fullname %></td>
-        <td><%= user.company %></td>
-        <td><%= user.email %></td>
-        <td><%= user.school %></td>
-        <td><%= user.grade %></td>
-        <td><%= user.city %></td>
-        <td><%= user.country %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.about %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<div data-role="page" id="list">
+  <div role="main" class="ui-content">
+      <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+         <% @users.each do |user| %>
+            <li><a href="#<%= "page#{user.id}" %>"></a><%= user.fullname %></li>
+          <% end -%>
+      </ul>
+  </div><!-- /content -->
+</div><!-- /page -->
