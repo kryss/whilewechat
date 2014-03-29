@@ -9,6 +9,9 @@ class EventsController < InheritedResources::Base
     end
   end
 
+  def attend
+  end
+
 private
   def event_params
     params.require(:event).permit(:title, :description, :location, :event_date, :slot, :price)
