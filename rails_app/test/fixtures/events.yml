@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  location: MyString
+  event_date: 2014-03-29 23:36:23
+  slot: 1
+  price: 1.5
+
+two:
+  title: MyString
+  description: MyText
+  location: MyString
+  event_date: 2014-03-29 23:36:23
+  slot: 1
+  price: 1.5

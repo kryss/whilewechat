@@ -27,7 +27,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'bootstrap-sass'
+gem 'therubyracer', platforms: :ruby # or any other runtime
+gem 'less-rails'
+gem 'autoprefixer-rails'
+gem 'semantic-ui-rails'
 gem 'cancan'
 gem 'omniauth'
 # gem 'omniauth-linkedin'
@@ -35,6 +38,7 @@ gem "omniauth-wechat-oauth2"
 gem 'puma'
 gem 'rolify'
 gem 'simple_form'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'better_errors'
