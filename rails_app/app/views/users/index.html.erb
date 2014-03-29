@@ -6,8 +6,69 @@
   <div role="main" class="ui-content">
       <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
          <% @users.each do |user| %>
-            <li><a href="#<%= "page#{user.id}" %>"></a><%= user.fullname %></li>
+            <li><a href="#<%= "page#{user.id}" %>"><%= user.fullname %></a></li>
           <% end -%>
       </ul>
   </div><!-- /content -->
 </div><!-- /page -->
+
+
+<% @users.each do |user| %>
+
+<div data-role="page" id="<%= "page#{user.id}" %>" >
+  <div id="ui-body-test" class="ui-body ui-corner-all ui-body-a" style="margin-bottom:1em;">
+
+  <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fullname:</strong>
+  <%= user.fullname %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= user.company %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= user.email %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= user.school %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= user.grade %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= user.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= user.country %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= user.phone %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= user.about %>
+</p>
+
+    <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back</a>
+  </div>
+
+
+</div><!-- /page -->
+
+<% end -%>
