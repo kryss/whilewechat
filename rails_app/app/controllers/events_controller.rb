@@ -9,7 +9,11 @@ class EventsController < InheritedResources::Base
   end
 
   def attend
-    
+
+  end
+
+  def index
+    @events = Event.order(id: :desc)
   end
 
 private

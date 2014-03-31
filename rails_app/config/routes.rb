@@ -6,6 +6,7 @@ RailsApp::Application.routes.draw do
   get "home/index"
   resources :users
   get 'events/:id/attend' => "events#attend", :as => :sub
+  get 'user/new' => "users#join", :as => :join
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,7 +18,7 @@ RailsApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
