@@ -14,6 +14,10 @@ class UsersController < InheritedResources::Base
 
   end
 
+  def index
+    @users = User.order(:fullname)
+  end
+
 private
   def user_params
     params.require(:user).permit(:fullname, :company, :email, :school, :grade, :city, :country, :phone, :about)
