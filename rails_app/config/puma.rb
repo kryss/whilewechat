@@ -7,4 +7,3 @@ pidfile "/srv/www/w42.itsium.cn/rails_app/tmp/puma.pid"
 state_path "/srv/www/w42.itsium.cn/rails_app/tmp/puma.state"
 
 activate_control_app
-
