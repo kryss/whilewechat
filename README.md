@@ -2,7 +2,7 @@
 
 This is a ![](http://while42.org/images/while42.png) hackathon project.
 
-The purpuse of this projects is to create a ![](http://tips.wechat.com/wechatportal/img/logo.png) diffusion account
+The purpuse of this projects is to create a ![](http://upload.wikimedia.org/wikipedia/en/8/84/WeChat.png) diffusion account
 with interactive features to facilitate members interaction.
 
 ### Demo
