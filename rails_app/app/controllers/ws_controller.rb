@@ -9,7 +9,7 @@ class WsController < ApplicationController
 
     xml = Nokogiri::XML(request.body.read)
     type = xml.xpath("//xml/MsgType").text
-    puts "--request type is: #{type}"
+    logger.debug "--request type is: #{type}"
     @ret = ""
     if type == "text"
       parse_xml(xml)
@@ -17,7 +17,7 @@ class WsController < ApplicationController
         login
       else
         menu
-      end        
+      end
     elsif type == "voice"
       parse_xml(xml)
       you_said
@@ -27,7 +27,7 @@ class WsController < ApplicationController
 
   private
   def parse_xml(xml)
-    puts xml
+    logger.debug xml
 
     @content = xml.xpath("//xml/Content").text
     @recognition = xml.xpath("//xml/Recognition").text
@@ -35,7 +35,7 @@ class WsController < ApplicationController
     @me = xml.xpath("//xml/ToUserName").text
     @now = Time.now.to_i
   end
-  
+
   def you_said
     @ret = "<xml><ToUserName><![CDATA[#{@him}]]></ToUserName><FromUserName><![CDATA[#{@me}]]></FromUserName><CreateTime>#{@now}</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[you said: #{@recognition}]]></Content></xml>"
   end

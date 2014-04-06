@@ -15,6 +15,8 @@ RailsApp::Application.routes.draw do
   get 'ws' => 'ws#answering_machine'
   post 'ws' => 'ws#answering_machine'
 
+  get 'auth/wechat/callback' => "ws#auth_callback"
+
   # You can have the root of your site routed with "root"
   root 'home#index'
 
